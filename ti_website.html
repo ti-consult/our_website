@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tactic Intel - Database Performance & Optimisation Specialist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header - Tactic Intel Letterhead Style */
+        header {
+            background: linear-gradient(180deg, #4472C4 0%, #2B4C8C 50%, #1B3A6B 100%);
+            color: white;
+            padding: 25px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .company-name {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+            letter-spacing: 1.5px;
+        }
+
+        .tagline {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .services-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .service-tag {
+            background: rgba(255,255,255,0.2);
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .service-tag:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-1px);
+        }
+
+        .bottom-line {
+            border-top: 1px solid rgba(255,255,255,0.3);
+            padding-top: 10px;
+            margin-top: 15px;
+            font-size: 12px;
+            font-style: italic;
+        }
+
+        .contact-info {
+            margin-top: 10px;
+            font-size: 11px;
+            opacity: 0.8;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(30, 58, 138, 0.95);
+            padding: 15px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            color: #2B4C8C;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #64748b;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            background: #dc2626;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #b91c1c;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            text-align: center;
+            color: #2B4C8C;
+            margin-bottom: 50px;
+            font-weight: 700;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: #f8fafc;
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s, shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            color: #2B4C8C;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #64748b;
+            margin-bottom: 15px;
+        }
+
+        .service-price {
+            font-weight: 600;
+            color: #dc2626;
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: #1e3a8a;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: #64748b;
+            margin-bottom: 20px;
+        }
+
+        .credentials {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .credentials h4 {
+            color: #1e3a8a;
+            margin-bottom: 15px;
+        }
+
+        .credentials ul {
+            list-style-position: inside;
+            color: #64748b;
+        }
+
+        .credentials li {
+            margin-bottom: 8px;
+        }
+
+        /* Problem Scenarios Section */
+        .case-studies {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .case-study {
+            background: #f8fafc;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            border-left: 5px solid #3b82f6;
+        }
+
+        .case-study h4 {
+            color: #1e3a8a;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .case-study p {
+            color: #64748b;
+            margin-bottom: 10px;
+        }
+
+        .case-results {
+            background: #dcfce7;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid #16a34a;
+        }
+
+        .case-results strong {
+            color: #16a34a;
+        }
+
+        /* Security Trust Indicators */
+        .security-badges {
+            background: #f8fafc;
+            padding: 30px 0;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .security-badges .container {
+            text-align: center;
+        }
+
+        .security-badges h4 {
+            color: #2B4C8C;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .security-items {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .security-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .security-item::before {
+            content: "🔒";
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .security-items {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+        .contact {
+            padding: 80px 0;
+            background: #2B4C8C;
+            color: white;
+            text-align: center;
+        }
+
+        .contact h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 0 15px;
+            }
+
+            .company-name {
+                font-size: 2rem;
+            }
+
+            .services-header {
+                gap: 8px;
+            }
+
+            .service-tag {
+                font-size: 10px;
+                padding: 5px 10px;
+            }
+
+            nav ul {
+                gap: 20px;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header - Tactic Intel Letterhead Style -->
+    <header>
+        <div class="header-content">
+            <div class="company-name">Tactic Intel</div>
+            <div class="tagline">Tactical Intelligence for Technology Decisions</div>
+
+            <div class="services-header">
+                <div class="service-tag">Database Performance Optimisation</div>
+                <div class="service-tag">Multi-Platform Expertise</div>
+                <div class="service-tag">Emergency Response</div>
+                <div class="service-tag">Performance Monitoring</div>
+                <div class="service-tag">Infrastructure Assessment</div>
+                <div class="service-tag">Database Architecture Review</div>
+            </div>
+
+            <div class="bottom-line">
+                Over 20 years of technology expertise
+            </div>
+
+            <div class="contact-info">
+                ashley@tacticintel.com | tacticintel.com | Auckland, New Zealand
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#problem-scenarios">Problem Scenarios</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>Systematic Database & Infrastructure Optimisation</h2>
+            <p>Specialising in database performance optimisation across all major platforms. Tactical intelligence for critical technology decisions with over 20 years of proven expertise serving European and UK markets.</p>
+            <a href="mailto:ashley@tacticintel.com?subject=Free%20Database%20Performance%20Assessment" class="cta-button">Free Database Performance Assessment</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Strategic Advisory Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Database Health Check</h3>
+                    <p>Quick 2-hour assessment identifying your top 3 database performance issues. Covers PostgreSQL, MySQL, SQL Server, Oracle, and NoSQL databases. Perfect starting point with immediate actionable insights.</p>
+                    <div class="service-price">€600 / £500 per assessment</div>
+                </div>
+
+                <div class="service-card">
+                    <h3>Database Performance Analysis</h3>
+                    <p>Comprehensive database performance audit identifying bottlenecks, slow queries, and optimisation opportunities. Covers all major database platforms. Includes detailed report with priority recommendations and ROI projections.</p>
+                    <div class="service-price">€1,800 / £1,500 per assessment</div>
+                </div>
+
+                <div class="service-card">
+                    <h3>AI-Enhanced Infrastructure Assessment</h3>
+                    <p>Systematic analysis of database and infrastructure configuration using proven AI-enhanced methodology. Ensures comprehensive coverage and consistent analysis quality across cloud and on-premise environments.</p>
+                    <div class="service-price">€2,200 / £1,800 per project</div>
+                </div>
+
+                <div class="service-card">
+                    <h3>Query Optimisation Package</h3>
+                    <p>Detailed analysis and optimisation of your slowest queries across SQL and NoSQL databases. Includes index strategy, query rewriting, and performance monitoring setup. Focuses on immediate wins.</p>
+                    <div class="service-price">€1,500 / £1,200 per package</div>
+                </div>
+
+                <div class="service-card">
+                    <h3>Database Emergency Response</h3>
+                    <p>Critical database performance issues resolved within 24-48 hours. Emergency query optimisation, resource tuning, and immediate performance restoration across all major database platforms.</p>
+                    <div class="service-price">€2,400 / £2,000 per incident</div>
+                </div>
+
+                <div class="service-card">
+                    <h3>Database Architecture Review</h3>
+                    <p>Complete evaluation of database design, scaling strategy, and performance bottlenecks. Technology-agnostic roadmap for growth and optimisation priorities across your database stack.</p>
+                    <div class="service-price">€2,600 / £2,200 per review</div>
+                </div>
+
+                <div class="service-card">
+                    <h3>Monthly Performance Monitoring</h3>
+                    <p>Ongoing database health monitoring with monthly reports and proactive optimisation recommendations. Prevents performance degradation across your entire database infrastructure.</p>
+                    <div class="service-price">€300 / £250 per month</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Tactic Intel</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Financial Controller Background + 20+ Years Database Performance Specialist</h3>
+                    <p>Unique combination of financial acumen from controller experience and deep database expertise across multiple platforms developed over 20+ years. I understand both the business impact and technical implementation of database performance decisions.</p>
+
+                    <p><strong>Specialisation:</strong> Growing European companies experiencing database performance issues, scaling challenges, and cost pressures requiring tactical solutions across PostgreSQL, MySQL, SQL Server, and NoSQL platforms.</p>
+
+                    <p><strong>Methodology:</strong> Systematic approach combining proven database optimisation frameworks with intelligent analysis for consistent, measurable outcomes across all major database technologies.</p>
+
+                    <p><strong>Client Focus:</strong> CTOs and Tech Leads who need both technical excellence and clear business ROI from their database infrastructure investments, regardless of technology stack.</p>
+                </div>
+
+                <div class="credentials">
+                    <h4>Core Competencies</h4>
+                    <ul>
+                        <li>Database performance tuning across PostgreSQL, MySQL, SQL Server, Oracle</li>
+                        <li>NoSQL optimisation (MongoDB, Redis, Elasticsearch)</li>
+                        <li>Multi-platform query analysis and index strategy</li>
+                        <li>Database diagnostics and monitoring</li>
+                        <li>Cloud database optimisation (AWS RDS, Azure SQL, Google Cloud SQL)</li>
+                        <li>Database scaling and architecture planning</li>
+                        <li>Cost-effective infrastructure optimisation</li>
+                        <li>Business impact analysis and ROI modelling</li>
+                    </ul>
+
+                    <h4 style="margin-top: 25px;">Target Markets</h4>
+                    <ul>
+                        <li>Growing SaaS companies (UK & Europe)</li>
+                        <li>Fintech and financial services</li>
+                        <li>E-commerce and marketplace platforms</li>
+                        <li>Data-intensive applications</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Scenarios Section -->
+    <section class="case-studies" id="problem-scenarios">
+        <div class="container">
+            <h2 class="section-title">Common Database Performance Scenarios</h2>
+
+            <div class="case-study">
+                <h4>E-commerce Checkout Slowdown</h4>
+                <p><strong>When we see:</strong> 5+ second checkout times during peak periods, cart abandonment increasing, customer complaints about "slow website".</p>
+                <p><strong>Our systematic approach:</strong> Query execution analysis → Index strategy review → Connection pooling assessment → Scaling recommendations.</p>
+                <div class="case-results">
+                    <strong>Typical outcomes:</strong> 70-85% performance improvement within 48 hours. Prevention of revenue loss during critical sales periods. Methodology ensures systematic resolution rather than temporary fixes.
+                </div>
+            </div>
+
+            <div class="case-study">
+                <h4>Growing SaaS Platform Scaling Crisis</h4>
+                <p><strong>When we see:</strong> Database performance degrading as user base grows, developers requesting expensive hardware upgrades, increasing infrastructure costs without performance gains.</p>
+                <p><strong>Our systematic approach:</strong> Infrastructure assessment → Query optimization priority matrix → Architectural scaling strategy → Cost-performance optimization.</p>
+                <div class="case-results">
+                    <strong>Typical outcomes:</strong> 3x capacity increase with 20-40% cost reduction. Systematic methodology identifies root causes rather than symptoms, preventing recurring crises.
+                </div>
+            </div>
+
+            <div class="case-study">
+                <h4>Multi-Database Environment Complexity</h4>
+                <p><strong>When we see:</strong> Inconsistent performance across PostgreSQL, MySQL, and NoSQL systems, manual troubleshooting consuming development time, different optimization approaches for each platform.</p>
+                <p><strong>Our systematic approach:</strong> Cross-platform performance analysis → Unified monitoring strategy → Technology-agnostic optimization frameworks → Standardized maintenance procedures.</p>
+                <div class="case-results">
+                    <strong>Typical outcomes:</strong> 60% reduction in database maintenance overhead. Systematic approach works across all database technologies, eliminating platform-specific expertise bottlenecks.
+                </div>
+            </div>
+
+            <div class="case-study">
+                <h4>Financial Services Performance Under Load</h4>
+                <p><strong>When we see:</strong> Transaction processing delays during market volatility, compliance reporting taking hours instead of minutes, system instability during high-volume periods.</p>
+                <p><strong>Our systematic approach:</strong> OLTP/OLAP workload separation → Real-time vs batch processing optimization → Regulatory compliance performance requirements → Disaster recovery validation.</p>
+                <div class="case-results">
+                    <strong>Typical outcomes:</strong> Sub-second transaction processing maintained under peak load. Systematic methodology ensures compliance requirements met while optimizing performance.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Trust Indicators -->
+    <section class="security-badges">
+        <div class="container">
+            <h4>Professional Infrastructure & Data Protection</h4>
+            <div class="security-items">
+                <div class="security-item">Swiss-Hosted</div>
+                <div class="security-item">GDPR Compliant</div>
+                <div class="security-item">Secure Processing</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h3>Ready to Optimise Your Database Performance?</h3>
+            <p>Schedule your free 15-minute database performance assessment call. Let's identify immediate optimisation opportunities and discuss how systematic methodology can transform your database infrastructure.</p>
+            <a href="mailto:ashley@tacticintel.com?subject=Free%20Database%20Performance%20Assessment" class="cta-button">Schedule Free Assessment Call</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Tactic Intel. All rights reserved.</p>
+            <p>Swiss-hosted secure infrastructure | ashley@tacticintel.com | Auckland, NZ | Serving UK & European Markets</p>
+            <p style="font-size: 0.9rem; margin-top: 5px; opacity: 0.8;">GDPR+ Compliant • Swiss Data Protection Standards • Banking-Grade Security</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Simple contact form handling (can be enhanced with backend integration)
+        document.querySelectorAll('.cta-button').forEach(button => {
+            if(button.getAttribute('href').includes('mailto:')) {
+                button.addEventListener('click', function(e) {
+                    // Track contact attempts if analytics are added
+                    console.log('Contact initiated via:', this.textContent);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
